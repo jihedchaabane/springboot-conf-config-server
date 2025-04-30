@@ -12,7 +12,7 @@ pipeline {
         
         // eureka-server url.
         EUREKA_URL = 'http://container-springboot-conf-eureka-server:8761/eureka/'
-        CONFIG_REPO_ADDR = 'file:////var/lib/jenkins/workspace/spring-boot-conf-config-server-repo'
+        CONFIG_REPO_ADDR = 'file:///var/lib/jenkins/workspace/spring-boot-conf-config-server-repo'
         CONFIG_REPO_BRANCH = 'master'
     }
     stages {
