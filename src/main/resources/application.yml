@@ -8,11 +8,14 @@ spring:
     config:
       server:
         git:
-          uri: file:///C:/E/TOOLS/JAVA_21/spring-boot-conf-config-server-repo
-          default-label: main
+          uri: file:///C:/E/TOOLS/JAVA_21/WKS_DEMO/springboot-config-repo
+          default-label: master
+          #uri: file:///C:/E/TOOLS/JAVA_21/spring-boot-conf-config-server-repo
+          #default-label: main
+
           search-paths: '{application}'
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: ${EUREKA_ADDR:http://localhost:8761/eureka/}
