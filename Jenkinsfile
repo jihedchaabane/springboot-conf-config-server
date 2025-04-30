@@ -12,7 +12,7 @@ pipeline {
         
         // eureka-server url.
         EUREKA_URL = 'http://container-springboot-conf-eureka-server:8761/eureka/'
-        CONFIG_REPO_ADDR = 'file:///var/lib/jenkins/workspace/spring-boot-conf-config-server-repo'
+        CONFIG_REPO_ADDR = 'file:///config-repo'
         CONFIG_REPO_BRANCH = 'master'
     }
     stages {
@@ -110,8 +110,22 @@ pipeline {
             steps {
                 script {
                     // Lancer le conteneur
+//                     sh """
+//                         docker run \
+//                         -e EUREKA_ADDR=${EUREKA_URL} \
+//                         -e CONFIG_REPO_ADDR=${CONFIG_REPO_ADDR} \
+//                         -e CONFIG_REPO_BRANCH=${CONFIG_REPO_BRANCH} \
+//                         -d --name ${CONTAINER_NAME} --network ${DOCKER_NETWORK} \
+//                         -p ${APP_PORT}:${APP_PORT} ${DOCKER_IMAGE}
+//                     """
                     sh """
-                        docker run -e EUREKA_ADDR=${EUREKA_URL} -e CONFIG_REPO_ADDR=${CONFIG_REPO_ADDR} -e CONFIG_REPO_BRANCH=${CONFIG_REPO_BRANCH} -d --name ${CONTAINER_NAME} --network ${DOCKER_NETWORK} -p ${APP_PORT}:${APP_PORT} ${DOCKER_IMAGE}
+                        docker run \
+                        -v /var/lib/jenkins/workspace/spring-boot-conf-config-server-repo:/config-repo \
+                        -e EUREKA_ADDR=${EUREKA_URL} \
+                        -e CONFIG_REPO_ADDR=${CONFIG_REPO_ADDR} \
+                        -e CONFIG_REPO_BRANCH=${CONFIG_REPO_BRANCH} \
+                        -d --name ${CONTAINER_NAME} --network ${DOCKER_NETWORK} \
+                        -p ${APP_PORT}:${APP_PORT} ${DOCKER_IMAGE}
                     """
                 }
             }
