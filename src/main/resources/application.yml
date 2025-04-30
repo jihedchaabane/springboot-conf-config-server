@@ -1,0 +1,18 @@
+server:
+  port: 8762
+spring:
+  application:
+    name: springboot-conf-config-server
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:///C:/E/TOOLS/JAVA_21/spring-boot-conf-config-server-repo
+          default-label: main
+          search-paths: '{application}'
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
