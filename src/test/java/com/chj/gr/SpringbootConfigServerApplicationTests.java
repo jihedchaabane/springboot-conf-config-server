@@ -1,4 +1,4 @@
-package com.springboot3.chj.springboot_config_server;
+package com.chj.gr;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
