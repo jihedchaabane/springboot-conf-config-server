@@ -11,7 +11,7 @@ pipeline {
         DOCKER_NETWORK = 'springboot-network'
         
         // eureka-server url.
-        EUREKA_URL = 'http://springboot-conf-eureka-server:8761/eureka'
+        EUREKA_URL = 'http://container-springboot-conf-eureka-server:8761/eureka/'
         CONFIG_REPO_ADDR = 'file:////var/lib/jenkins/workspace/spring-boot-conf-config-server-repo'
         CONFIG_REPO_BRANCH = 'master'
     }

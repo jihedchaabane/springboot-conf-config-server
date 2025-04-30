@@ -13,14 +13,14 @@ public class SpringConfigServerApplication {
 	}
 	
 	/**
-	     http://localhost:8888/y-springboot-bar-service/default
-	     http://localhost:8888/y-springboot-bar-service/dev
-    	 http://localhost:8888/y-springboot-bar-service/prod
+	     http://localhost:8888/z-springboot-bar-service/default
+	     http://localhost:8888/z-springboot-bar-service/dev
+    	 http://localhost:8888/z-springboot-bar-service/prod
 	 */
 	/**
-    	https://localhost:8443/y-springboot-bar-service/default
-    	https://localhost:8443/y-springboot-bar-service/dev
-	 	https://localhost:8443/y-springboot-bar-service/prod
+    	https://localhost:8443/z-springboot-bar-service/default
+    	https://localhost:8443/z-springboot-bar-service/dev
+	 	https://localhost:8443/z-springboot-bar-service/prod
 	 */
 	
 	
