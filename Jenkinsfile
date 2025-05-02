@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        maven 'MAVEN'
+    }
     environment {
         // Nom de l'image Docker
         DOCKER_IMAGE = 'jihed123/springboot-conf-config-server:0.0.1-SNAPSHOT'
@@ -27,8 +30,22 @@ pipeline {
                 script {
                     // Construire le module Spring Boot
                     sh """
-                        /opt/maven/bin/mvn clean package
+                        mvn clean package
                     """
+                }
+            }
+        }
+        
+        stage('SonarQube Analysis') {
+            steps {
+                // Nom du serveur configuré dans l'étape 2
+                withSonarQubeEnv('SonarQubeServer') {
+                    sh '''
+                        mvn sonar:sonar \
+                            -Dsonar.java.binaries=. \
+                            -Dsonar.projectName=springboot-conf-config-server \
+                            -Dsonar.projectKey=springboot-conf-config-server
+                    '''
                 }
             }
         }
