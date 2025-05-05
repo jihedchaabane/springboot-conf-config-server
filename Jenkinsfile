@@ -137,7 +137,7 @@ pipeline {
 //                     """
                     sh """
                         docker run \
-                        -v /var/lib/jenkins/workspace/spring-boot-conf-config-server-repo:/config-repo \
+                        -v /var/lib/jenkins/workspace/springboot-conf-config-server-repo:/config-repo \
                         -e EUREKA_ADDR=${EUREKA_URL} \
                         -e CONFIG_REPO_ADDR=${CONFIG_REPO_ADDR} \
                         -e CONFIG_REPO_BRANCH=${CONFIG_REPO_BRANCH} \
